@@ -1,0 +1,17 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2021-09-23 14:18:36.438 UTC</timestamp>
+  <md5sum>52863c4661f968efbca3f74978cbbba2</md5sum>
+  <fileName>Credential id=34bb70bf-146d-499d-8b6e-8f77afbadb33 name=vivek.ausula@gmail.com/****** (GITHUB_NEW)</fileName>
+  <usages>
+    <entry>
+      <string>Create_TKG_Cluster</string>
+      <ranges>11-17</ranges>
+    </entry>
+    <entry>
+      <string>create_pod_scale</string>
+      <ranges>1-2</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>

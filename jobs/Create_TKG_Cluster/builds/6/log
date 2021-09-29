@@ -1,0 +1,24 @@
+Started by user [8mha:////4LMcYAXkNgpM1rVK+lR63yB4X0E8ABsDUug3AxN9LE1VAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0mvivek
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/test_job
+The recommended git tool is: NONE
+using credential 931866aa-12f0-4127-8733-f2ef743d0cb2
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/test_job/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/vvk0701/vmc_vvk # timeout=10
+Fetching upstream changes from https://github.com/vvk0701/vmc_vvk
+ > git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/vvk0701/vmc_vvk +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision a6f3e70c1f08db859f4eea1413afb12d49cb1c90 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a6f3e70c1f08db859f4eea1413afb12d49cb1c90 # timeout=10
+Commit message: "Create ubuntu.yaml"
+ > git rev-list --no-walk a6f3e70c1f08db859f4eea1413afb12d49cb1c90 # timeout=10
+[test_job] $ /bin/sh -xe /tmp/jenkins1394836471570170985.sh
++ sudo apt install unzip
+/tmp/jenkins1394836471570170985.sh: 2: /tmp/jenkins1394836471570170985.sh: sudo: not found
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
