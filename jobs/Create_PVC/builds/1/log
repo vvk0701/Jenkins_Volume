@@ -1,0 +1,11 @@
+Started by user [8mha:////4LMcYAXkNgpM1rVK+lR63yB4X0E8ABsDUug3AxN9LE1VAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0mvivek
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Create_PVC
+[Create_PVC] $ /bin/sh -xe /tmp/jenkins7084257133865247556.sh
++ export KUBECTL_VSPHERE_PASSWORD=
++ kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify
+
+KUBECTL_VSPHERE_PASSWORD environment variable is not set. Please enter the password below
+Password: time="2021-09-29T09:58:05Z" level=fatal msg="Password is required."
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

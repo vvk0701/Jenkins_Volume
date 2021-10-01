@@ -1,0 +1,152 @@
+Started by user [8mha:////4LMcYAXkNgpM1rVK+lR63yB4X0E8ABsDUug3AxN9LE1VAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0mvivek
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/test_job
+The recommended git tool is: NONE
+using credential 931866aa-12f0-4127-8733-f2ef743d0cb2
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/test_job/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/vvk0701/vmc_vvk # timeout=10
+Fetching upstream changes from https://github.com/vvk0701/vmc_vvk
+ > git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --force --progress -- https://github.com/vvk0701/vmc_vvk +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision a6f3e70c1f08db859f4eea1413afb12d49cb1c90 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a6f3e70c1f08db859f4eea1413afb12d49cb1c90 # timeout=10
+Commit message: "Create ubuntu.yaml"
+ > git rev-list --no-walk a6f3e70c1f08db859f4eea1413afb12d49cb1c90 # timeout=10
+[test_job] $ /bin/sh -xe /tmp/jenkins1427768899083565582.sh
++ export KUBECTL_VSPHERE_PASSWORD=obsx5k9LWQ-D*TX
++ kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify
+
+Logged in successfully.
+
+You have access to the following contexts:
+   192.168.123.2
+   wcpns2
+   wcpns7
+   wcpns8
+   wcpns9
+
+If the context you wish to use is not in this list, you may need to try
+logging in again later, or contact your cluster administrator.
+
+To change context, use `kubectl config use-context <workload name>`
++ kubectl get pods -A
+NAMESPACE                                   NAME                                                              READY   STATUS        RESTARTS   AGE
+kube-system                                 coredns-689d589965-b4czv                                          0/1     Pending       0          3d11h
+kube-system                                 coredns-689d589965-cl7bj                                          1/1     Running       0          11d
+kube-system                                 coredns-689d589965-hl565                                          1/1     Running       0          11d
+kube-system                                 coredns-689d589965-j5lxj                                          1/1     Terminating   5          11d
+kube-system                                 docker-registry-423511f88f47011b6aa9fb5b246fac2f                  1/1     Running       0          11d
+kube-system                                 docker-registry-42354d8323a89cef5674cd3b7559eb4d                  1/1     Running       0          11d
+kube-system                                 docker-registry-4235c0fa14e68037bb36520ccd1c6bdf                  1/1     Running       0          11d
+kube-system                                 etcd-423511f88f47011b6aa9fb5b246fac2f                             1/1     Running       0          11d
+kube-system                                 etcd-42354d8323a89cef5674cd3b7559eb4d                             1/1     Running       0          11d
+kube-system                                 etcd-4235c0fa14e68037bb36520ccd1c6bdf                             1/1     Running       0          11d
+kube-system                                 kube-apiserver-423511f88f47011b6aa9fb5b246fac2f                   1/1     Running       3          11d
+kube-system                                 kube-apiserver-42354d8323a89cef5674cd3b7559eb4d                   1/1     Running       9          11d
+kube-system                                 kube-apiserver-4235c0fa14e68037bb36520ccd1c6bdf                   1/1     Running       4          11d
+kube-system                                 kube-controller-manager-423511f88f47011b6aa9fb5b246fac2f          1/1     Running       2          11d
+kube-system                                 kube-controller-manager-42354d8323a89cef5674cd3b7559eb4d          1/1     Running       1          11d
+kube-system                                 kube-controller-manager-4235c0fa14e68037bb36520ccd1c6bdf          1/1     Running       2          11d
+kube-system                                 kube-proxy-75xbz                                                  1/1     Running       0          11d
+kube-system                                 kube-proxy-c2rdf                                                  1/1     Running       0          11d
+kube-system                                 kube-proxy-m8xch                                                  1/1     Running       0          11d
+kube-system                                 kube-scheduler-423511f88f47011b6aa9fb5b246fac2f                   2/2     Running       5          11d
+kube-system                                 kube-scheduler-42354d8323a89cef5674cd3b7559eb4d                   2/2     Running       6          11d
+kube-system                                 kube-scheduler-4235c0fa14e68037bb36520ccd1c6bdf                   2/2     Running       11         11d
+kube-system                                 kubectl-plugin-vsphere-423511f88f47011b6aa9fb5b246fac2f           1/1     Running       4          11d
+kube-system                                 kubectl-plugin-vsphere-42354d8323a89cef5674cd3b7559eb4d           1/1     Running       4          11d
+kube-system                                 kubectl-plugin-vsphere-4235c0fa14e68037bb36520ccd1c6bdf           1/1     Running       4          11d
+kube-system                                 wcp-authproxy-423511f88f47011b6aa9fb5b246fac2f                    1/1     Running       0          11d
+kube-system                                 wcp-authproxy-42354d8323a89cef5674cd3b7559eb4d                    1/1     Running       1          11d
+kube-system                                 wcp-authproxy-4235c0fa14e68037bb36520ccd1c6bdf                    1/1     Running       0          11d
+kube-system                                 wcp-fip-423511f88f47011b6aa9fb5b246fac2f                          1/1     Running       0          11d
+kube-system                                 wcp-fip-42354d8323a89cef5674cd3b7559eb4d                          1/1     Running       0          11d
+kube-system                                 wcp-fip-4235c0fa14e68037bb36520ccd1c6bdf                          1/1     Running       0          11d
+svc-tmc-c55                                 tmc-agent-installer-27197695-mxjsk                                0/1     Terminating   0          3d11h
+svc-tmc-c55                                 tmc-agent-installer-27202682-vngdm                                0/1     Completed     0          59s
+vmware-system-appplatform-operator-system   vmware-system-appplatform-operator-mgr-0                          1/1     Terminating   0          11d
+vmware-system-capw                          capi-controller-manager-584fd8896-7mnbz                           2/2     Running       0          11d
+vmware-system-capw                          capi-controller-manager-584fd8896-chgw5                           0/2     Pending       0          3d11h
+vmware-system-capw                          capi-controller-manager-584fd8896-svgt2                           2/2     Terminating   4          11d
+vmware-system-capw                          capi-controller-manager-584fd8896-tpmfp                           2/2     Running       2          11d
+vmware-system-capw                          capi-kubeadm-bootstrap-controller-manager-7c66845b75-k6znn        2/2     Running       3          11d
+vmware-system-capw                          capi-kubeadm-bootstrap-controller-manager-7c66845b75-wtr6n        2/2     Running       0          11d
+vmware-system-capw                          capi-kubeadm-bootstrap-controller-manager-7c66845b75-xqlsz        2/2     Terminating   4          11d
+vmware-system-capw                          capi-kubeadm-bootstrap-controller-manager-7c66845b75-zqcbm        0/2     Pending       0          3d11h
+vmware-system-capw                          capi-kubeadm-bootstrap-webhook-85b6b6f795-nlx79                   2/2     Running       0          11d
+vmware-system-capw                          capi-kubeadm-bootstrap-webhook-85b6b6f795-plr4x                   0/2     Pending       0          3d11h
+vmware-system-capw                          capi-kubeadm-bootstrap-webhook-85b6b6f795-rf8gf                   2/2     Terminating   1          11d
+vmware-system-capw                          capi-kubeadm-bootstrap-webhook-85b6b6f795-x9xrk                   2/2     Running       1          11d
+vmware-system-capw                          capi-kubeadm-control-plane-controller-manager-698b658fd9-4fftq    2/2     Running       3          11d
+vmware-system-capw                          capi-kubeadm-control-plane-controller-manager-698b658fd9-cnx7s    0/2     Pending       0          3d11h
+vmware-system-capw                          capi-kubeadm-control-plane-controller-manager-698b658fd9-gc7bd    2/2     Terminating   4          11d
+vmware-system-capw                          capi-kubeadm-control-plane-controller-manager-698b658fd9-kpc7r    2/2     Running       0          11d
+vmware-system-capw                          capi-kubeadm-control-plane-webhook-54b4c9857c-9ts4n               2/2     Terminating   1          11d
+vmware-system-capw                          capi-kubeadm-control-plane-webhook-54b4c9857c-dxtng               2/2     Running       0          11d
+vmware-system-capw                          capi-kubeadm-control-plane-webhook-54b4c9857c-jntc6               0/2     Pending       0          3d11h
+vmware-system-capw                          capi-kubeadm-control-plane-webhook-54b4c9857c-kkrh2               2/2     Running       1          11d
+vmware-system-capw                          capi-webhook-f48c7ff58-b9f74                                      2/2     Running       1          11d
+vmware-system-capw                          capi-webhook-f48c7ff58-dqjd2                                      0/2     Pending       0          3d11h
+vmware-system-capw                          capi-webhook-f48c7ff58-khv9c                                      2/2     Running       0          11d
+vmware-system-capw                          capi-webhook-f48c7ff58-sbnz4                                      2/2     Terminating   3          11d
+vmware-system-capw                          capw-controller-manager-85b8c7cf7b-74rrn                          2/2     Running       3          11d
+vmware-system-capw                          capw-controller-manager-85b8c7cf7b-7mfvv                          2/2     Terminating   6          11d
+vmware-system-capw                          capw-controller-manager-85b8c7cf7b-jb9br                          2/2     Running       0          11d
+vmware-system-capw                          capw-controller-manager-85b8c7cf7b-whwf9                          0/2     Pending       0          3d11h
+vmware-system-capw                          capw-webhook-77ffc699f5-66wn7                                     0/2     Pending       0          3d11h
+vmware-system-capw                          capw-webhook-77ffc699f5-8d7vf                                     2/2     Running       1          11d
+vmware-system-capw                          capw-webhook-77ffc699f5-sw55s                                     2/2     Running       0          11d
+vmware-system-capw                          capw-webhook-77ffc699f5-xg6cz                                     2/2     Terminating   1          11d
+vmware-system-cert-manager                  cert-manager-799b5bbfdf-jp4dr                                     1/1     Running       0          3d11h
+vmware-system-cert-manager                  cert-manager-799b5bbfdf-kd25r                                     1/1     Terminating   2          11d
+vmware-system-cert-manager                  cert-manager-cainjector-69c886766f-lj9mh                          1/1     Running       0          3d11h
+vmware-system-cert-manager                  cert-manager-cainjector-69c886766f-mw29t                          1/1     Terminating   5          11d
+vmware-system-cert-manager                  cert-manager-webhook-657b4fdd6c-8lgzm                             1/1     Terminating   1          11d
+vmware-system-cert-manager                  cert-manager-webhook-657b4fdd6c-glgcl                             1/1     Running       0          3d11h
+vmware-system-csi                           vsphere-csi-controller-5d94c7dfc7-gln8b                           6/6     Terminating   30         11d
+vmware-system-csi                           vsphere-csi-controller-5d94c7dfc7-pmptm                           6/6     Running       8          3d11h
+vmware-system-kubeimage                     image-controller-d66bfd69c-s282n                                  1/1     Terminating   1          11d
+vmware-system-kubeimage                     image-controller-d66bfd69c-sqbkh                                  1/1     Running       0          3d11h
+vmware-system-license-operator              vmware-system-license-operator-controller-manager-c67954c52lh4v   1/1     Running       0          11d
+vmware-system-license-operator              vmware-system-license-operator-controller-manager-c67954c57qvp7   0/1     Pending       0          3d11h
+vmware-system-license-operator              vmware-system-license-operator-controller-manager-c67954c5nf9sl   1/1     Running       0          11d
+vmware-system-license-operator              vmware-system-license-operator-controller-manager-c67954c5wwkw9   1/1     Terminating   0          11d
+vmware-system-logging                       fluentbit-7sn6h                                                   1/1     Terminating   0          11d
+vmware-system-monitoring                    telegraf-k75br                                                    2/2     Running       0          11d
+vmware-system-monitoring                    telegraf-n7fhb                                                    2/2     Running       0          11d
+vmware-system-monitoring                    telegraf-w599f                                                    2/2     Running       0          11d
+vmware-system-nsop                          vmware-system-nsop-controller-manager-6d8db5769-7gcbb             1/1     Terminating   4          11d
+vmware-system-nsop                          vmware-system-nsop-controller-manager-6d8db5769-cwjrn             1/1     Running       0          11d
+vmware-system-nsop                          vmware-system-nsop-controller-manager-6d8db5769-j942c             1/1     Running       3          11d
+vmware-system-nsop                          vmware-system-nsop-controller-manager-6d8db5769-vg48w             0/1     Pending       0          3d11h
+vmware-system-nsx                           nsx-ncp-55cf854564-fmzjb                                          1/1     Terminating   8          11d
+vmware-system-nsx                           nsx-ncp-55cf854564-x5ktq                                          1/1     Running       1          3d11h
+vmware-system-registry                      vmware-registry-controller-manager-848dcc8dc-rbdkl                2/2     Running       5          11d
+vmware-system-tkg                           masterproxy-tkgs-plugin-jfsnn                                     1/1     Running       0          11d
+vmware-system-tkg                           masterproxy-tkgs-plugin-ngdq5                                     1/1     Running       0          11d
+vmware-system-tkg                           masterproxy-tkgs-plugin-pmjbw                                     1/1     Running       0          11d
+vmware-system-tkg                           tkgs-plugin-server-679f79fd9b-g2xjs                               1/1     Running       0          11d
+vmware-system-tkg                           tkgs-plugin-server-679f79fd9b-vrjbw                               1/1     Running       0          11d
+vmware-system-tkg                           tkgs-plugin-server-679f79fd9b-zfr4q                               1/1     Running       0          11d
+vmware-system-tkg                           vmware-system-tkg-controller-manager-67b9686948-4sgns             2/2     Running       3          11d
+vmware-system-tkg                           vmware-system-tkg-controller-manager-67b9686948-clxbx             0/2     Pending       0          3d11h
+vmware-system-tkg                           vmware-system-tkg-controller-manager-67b9686948-cptrg             2/2     Running       0          11d
+vmware-system-tkg                           vmware-system-tkg-controller-manager-67b9686948-xsrcg             2/2     Terminating   4          11d
+vmware-system-tkg                           vmware-system-tkg-webhook-6d8956b47-cm2nl                         2/2     Terminating   0          11d
+vmware-system-tkg                           vmware-system-tkg-webhook-6d8956b47-gwvrn                         0/2     Pending       0          3d11h
+vmware-system-tkg                           vmware-system-tkg-webhook-6d8956b47-mjt8w                         2/2     Running       0          11d
+vmware-system-tkg                           vmware-system-tkg-webhook-6d8956b47-vrjdz                         2/2     Running       0          11d
+vmware-system-ucs                           upgrade-compatibility-service-778468c84b-88mvh                    1/1     Running       0          11d
+vmware-system-ucs                           upgrade-compatibility-service-778468c84b-b4thn                    1/1     Terminating   0          11d
+vmware-system-ucs                           upgrade-compatibility-service-778468c84b-kkmmw                    1/1     Running       0          11d
+vmware-system-ucs                           upgrade-compatibility-service-778468c84b-shs5c                    0/1     Pending       0          3d11h
+vmware-system-vmop                          vmware-system-vmop-controller-manager-c97cc6ff8-ff52q             2/2     Running       0          11d
+vmware-system-vmop                          vmware-system-vmop-controller-manager-c97cc6ff8-jmdkg             2/2     Terminating   5          11d
+vmware-system-vmop                          vmware-system-vmop-controller-manager-c97cc6ff8-lrv9f             2/2     Running       3          11d
+vmware-system-vmop                          vmware-system-vmop-controller-manager-c97cc6ff8-q62fc             0/2     Pending       0          3d11h
+Finished: SUCCESS

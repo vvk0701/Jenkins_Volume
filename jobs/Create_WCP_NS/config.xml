@@ -1,0 +1,63 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty plugin="gitlab-plugin@1.5.20">
+      <gitLabConnection></gitLabConnection>
+      <jobCredentialId></jobCredentialId>
+      <useAlternativeCredential>false</useAlternativeCredential>
+    </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>vc_sso_username=cloudadmin@vmc.local
+namespace_prefix=&apos;wcpns&apos;
+cluster_name=&apos;Cluster-1&apos;
+pass_word = $1
+  
+sp=`dcli
++show-unreleased +username $vc_sso_username
++password $pass_word com vmware vcenter storage policies list |
+grep &quot;VMC Workload Storage Policy - Cluster-1&quot; | cut -d&apos;|&apos; -f4`
+  
+  
+echo &quot;Storage policy ID = $sp&quot;
+cluster_id=`dcli  +show-unreleased +username $vc_sso_username +password $pass_word com vmware vcenter cluster list | grep ${cluster_name} | grep True | cut -d&apos;|&apos; -f3`
+  
+  
+echo &quot;Cluster
+ID = $cluster_id&quot;
+  
+for (( i=1; i &lt;=10; i++ ))
+do
+output=`dcli +show-unreleased +username
+$vc_sso_username +password $pass_word com vmware vcenter namespaces
+instances create --cluster $cluster_id --namespace ${namespace_prefix}${i}
+--storage-specs &quot;[{\&quot;policy\&quot;: \&quot;$sp\&quot;}]&quot; || echo
+&quot;WCP Namespace already exists&quot;`
+  
+echo $output
+  
+output=`dcli +show-unreleased +username
+$vc_sso_username +password $pass_word com vmware vcenter namespaces
+access create  --namespace
+${namespace_prefix}${i}  --type USER
+--role EDIT --domain vmc.local --subject cloudadmin || echo &quot;WCP Namespace
+already exists&quot;`
+  
+done</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

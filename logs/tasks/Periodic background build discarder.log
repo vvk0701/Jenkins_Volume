@@ -1,0 +1,60 @@
+Started at Wed Sep 29 15:04:35 UTC 2021
+Processing Backup_Jenkins_Volume
+Offering Backup_Jenkins_Volume to Project Build Discarder
+Processing create_pod_scale
+Offering create_pod_scale to Project Build Discarder
+Processing Create_PVC
+Offering Create_PVC to Project Build Discarder
+Processing Create_TKG_Cluster
+Offering Create_TKG_Cluster to Project Build Discarder
+Processing Create_WCP_NS
+Offering Create_WCP_NS to Project Build Discarder
+Finished at Wed Sep 29 15:04:35 UTC 2021. 1ms
+Started at Wed Sep 29 16:04:35 UTC 2021
+Processing Backup_Jenkins_Volume
+Offering Backup_Jenkins_Volume to Project Build Discarder
+Processing create_pod_scale
+Offering create_pod_scale to Project Build Discarder
+Processing Create_PVC
+Offering Create_PVC to Project Build Discarder
+Processing Create_TKG_Cluster
+Offering Create_TKG_Cluster to Project Build Discarder
+Processing Create_WCP_NS
+Offering Create_WCP_NS to Project Build Discarder
+Finished at Wed Sep 29 16:04:35 UTC 2021. 1ms
+Started at Wed Sep 29 17:04:35 UTC 2021
+Processing Backup_Jenkins_Volume
+Offering Backup_Jenkins_Volume to Project Build Discarder
+Processing create_pod_scale
+Offering create_pod_scale to Project Build Discarder
+Processing Create_PVC
+Offering Create_PVC to Project Build Discarder
+Processing Create_TKG_Cluster
+Offering Create_TKG_Cluster to Project Build Discarder
+Processing Create_WCP_NS
+Offering Create_WCP_NS to Project Build Discarder
+Finished at Wed Sep 29 17:04:35 UTC 2021. 1ms
+Started at Wed Sep 29 18:04:35 UTC 2021
+Processing Backup_Jenkins_Volume
+Offering Backup_Jenkins_Volume to Project Build Discarder
+Processing create_pod_scale
+Offering create_pod_scale to Project Build Discarder
+Processing Create_PVC
+Offering Create_PVC to Project Build Discarder
+Processing Create_TKG_Cluster
+Offering Create_TKG_Cluster to Project Build Discarder
+Processing Create_WCP_NS
+Offering Create_WCP_NS to Project Build Discarder
+Finished at Wed Sep 29 18:04:35 UTC 2021. 1ms
+Started at Wed Sep 29 19:04:35 UTC 2021
+Processing Backup_Jenkins_Volume
+Offering Backup_Jenkins_Volume to Project Build Discarder
+Processing create_pod_scale
+Offering create_pod_scale to Project Build Discarder
+Processing Create_PVC
+Offering Create_PVC to Project Build Discarder
+Processing Create_TKG_Cluster
+Offering Create_TKG_Cluster to Project Build Discarder
+Processing Create_WCP_NS
+Offering Create_WCP_NS to Project Build Discarder
+Finished at Wed Sep 29 19:04:35 UTC 2021. 1ms

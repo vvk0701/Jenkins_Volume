@@ -1,0 +1,29 @@
+Started by user [8mha:////4LMcYAXkNgpM1rVK+lR63yB4X0E8ABsDUug3AxN9LE1VAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0mvivek
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Create_TKG_Cluster
+The recommended git tool is: NONE
+using credential 34bb70bf-146d-499d-8b6e-8f77afbadb33
+Cloning the remote Git repository
+Cloning repository https://github.com/vvk0701/vmc_vvk
+ > git init /var/jenkins_home/workspace/Create_TKG_Cluster # timeout=10
+Fetching upstream changes from https://github.com/vvk0701/vmc_vvk
+ > git --version # timeout=10
+ > git --version # 'git version 2.20.1'
+using GIT_ASKPASS to set credentials GITHUB_NEW
+ > git fetch --tags --force --progress -- https://github.com/vvk0701/vmc_vvk +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/vvk0701/vmc_vvk # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 99af9e13f7ad23cf8231d7b780752ed027ffbdea (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 99af9e13f7ad23cf8231d7b780752ed027ffbdea # timeout=10
+Commit message: "Create create1tkg.sh"
+ > git rev-list --no-walk a6f3e70c1f08db859f4eea1413afb12d49cb1c90 # timeout=10
+[Create_TKG_Cluster] $ /bin/sh -xe /tmp/jenkins7904801948769899657.sh
++ export KUBECTL_VSPHERE_PASSWORD="wy*-WugMP3GuH6J"
++ kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify
+
+time="2021-09-23T14:18:37Z" level=fatal msg="Failed to get available workloads: invalid or missing credentials"
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
