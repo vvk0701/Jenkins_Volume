@@ -21,6 +21,8 @@
   --focus-btn-primary: rgba(11, 106, 162, 0.5);
   --focus-btn-secondary: rgba(11, 106, 162, 0.5);
   --focus-btn-danger: rgba(204, 0, 3, 0.5);
+  --focus-input-border: #093853;
+  --focus-input-glow: rgba(11, 106, 162, 0.25);
   --primary-hover: #0587d4;
   --primary-active: #095683;
   --danger-hover: #eb383b;
@@ -178,6 +180,7 @@
   --task-link-bg-color--hover: var(--very-light-grey);
   --input-color: var(--white);
   --input-border: #ccc;
+  --input-border-hover: #888;
   --input-hidden-password-bg-color: #f9f9f9;
   --menu-text-color: black;
   --menu-bg-color: var(--white);
