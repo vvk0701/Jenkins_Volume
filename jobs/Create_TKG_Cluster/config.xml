@@ -9,6 +9,10 @@
       <jobCredentialId></jobCredentialId>
       <useAlternativeCredential>false</useAlternativeCredential>
     </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.32">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
@@ -46,6 +50,7 @@
       <command>export KUBECTL_VSPHERE_PASSWORD=$Kubectl_Password
 kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify
 kubectl get pods -A
+kubectl config use-context 192.168.123.2;
 chmod 777 createtkgclusters.sh;
 ./createtkgclusters.sh
 </command>
