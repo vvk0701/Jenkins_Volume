@@ -5,16 +5,8 @@
   <fileName>Credential id=34bb70bf-146d-499d-8b6e-8f77afbadb33 name=vivek.ausula@gmail.com/****** (GITHUB_NEW)</fileName>
   <usages>
     <entry>
-      <string>Create_PodScale</string>
-      <ranges>1</ranges>
-    </entry>
-    <entry>
       <string>Create_TKG_Cluster</string>
-      <ranges>11-24</ranges>
-    </entry>
-    <entry>
-      <string>Scale_Validation</string>
-      <ranges>1</ranges>
+      <ranges>11-25</ranges>
     </entry>
   </usages>
   <facets/>

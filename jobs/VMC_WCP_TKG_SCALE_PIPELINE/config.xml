@@ -8,7 +8,10 @@
       <parameters>
         <string>SKIP_POD_Scale</string>
         <string>SKIP_PVC_Creation</string>
+        <string>VC_IP</string>
+        <string>no_of_ns</string>
         <string>dryrun</string>
+        <string>no_of_tkg_clusters</string>
         <string>Kubectl_Password</string>
         <string>SKIP_TKG_CREATION</string>
         <string>SKIP_NAMESPACE_CREATION</string>
@@ -24,10 +27,6 @@
       <jobCredentialId></jobCredentialId>
       <useAlternativeCredential>false</useAlternativeCredential>
     </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.32">
-      <autoRebuild>false</autoRebuild>
-      <rebuildDisabled>false</rebuildDisabled>
-    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.BooleanParameterDefinition>
@@ -60,6 +59,23 @@
           <description>Boolean flag for skipping PVC</description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>VC_IP</name>
+          <description>Enter VCenter IP, Also add jenkins IP to Firewall on vCenter before Invoking</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>no_of_ns</name>
+          <description>Enter number of WCP Namespaces to be deployed, Max allowed is 10</description>
+          <defaultValue>10</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>no_of_tkg_clusters</name>
+          <description>Enter number of tkg clusters to be created, Max allowed is 50</description>
+          <defaultValue>50</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>

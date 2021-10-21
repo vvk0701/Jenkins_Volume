@@ -13,6 +13,25 @@
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>server</name>
+          <defaultValue>vcenter.sddc-52-34-233-40.vmwarevmc.com</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <defaultValue>YL+!8ApTLtxkzM8</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>no_of_ns</name>
+          <defaultValue>5</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -23,42 +42,41 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>vc_sso_username=cloudadmin@vmc.local
-namespace_prefix=&apos;wcpns&apos;
-cluster_name=&apos;Cluster-1&apos;
-pass_word = $1
-  
-sp=`dcli
-+show-unreleased +username $vc_sso_username
-+password $pass_word com vmware vcenter storage policies list |
-grep &quot;VMC Workload Storage Policy - Cluster-1&quot; | cut -d&apos;|&apos; -f4`
-  
-  
+      <command>#!/bin/bash
+export vc_sso_username=cloudadmin@vmc.local
+export namespace_prefix=&apos;wcpns&apos;
+export cluster_name=&apos;Cluster-1&apos;
+export password=&quot;$password&quot;
+export server=&quot;$server&quot;
+export number_of_namespace=&quot;$no_of_ns&quot;
+echo $password
+ 
+sp=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username  +password $password com vmware vcenter storage policies list | grep &quot;VMC Workload Storage Policy - Cluster-1&quot; | cut -d&apos;|&apos; -f4`
 echo &quot;Storage policy ID = $sp&quot;
-cluster_id=`dcli  +show-unreleased +username $vc_sso_username +password $pass_word com vmware vcenter cluster list | grep ${cluster_name} | grep True | cut -d&apos;|&apos; -f3`
-  
-  
-echo &quot;Cluster&quot;
-ID = $cluster_id&quot;
-  
-for (( i=1; i &lt;=10; i++ ))
+ 
+cluster_id=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username +password $password com vmware vcenter cluster list | grep ${cluster_name} | grep True | cut -d&apos;|&apos; -f3`
+echo &quot;Cluster ID = $cluster_id&quot;
+
+content_library_id=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username +password $password com vmware content library find --name kubernetes | cut -d&apos; &apos; -f2`
+
+echo $content_library_id
+ 
+for (( i=1; i &lt;= $number_of_namespace; i++ ))
 do
-output=`dcli +show-unreleased +username
-$vc_sso_username +password $pass_word com vmware vcenter namespaces
-instances create --cluster $cluster_id --namespace ${namespace_prefix}${i}
---storage-specs &quot;[{\&quot;policy\&quot;: \&quot;$sp\&quot;}]&quot; || echo
-&quot;WCP Namespace already exists&quot;`
-  
+output=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username +password $password com vmware vcenter namespaces instances create --cluster $cluster_id --namespace ${namespace_prefix}${i} --storage-specs &quot;[{\&quot;policy\&quot;: \&quot;$sp\&quot;}]&quot; || echo &quot;WCP Namespace already exists&quot;`
+ 
 echo $output
-  
-output=`dcli +show-unreleased +username
-$vc_sso_username +password $pass_word com vmware vcenter namespaces
-access create  --namespace
-${namespace_prefix}${i}  --type USER
---role EDIT --domain vmc.local --subject cloudadmin || echo &quot;WCP Namespace
-already exists&quot;`
-  
-done</command>
+
+
+ 
+output=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username +password $password com vmware vcenter namespaces access create  --namespace ${namespace_prefix}${i}  --type USER --role EDIT --domain vmc.local --subject cloudadmin || echo &quot;WCP Namespace already exists&quot;`
+ 
+assign_vmclass=`dcli +show-unreleased +server $server +skip-server-verification +username $vc_sso_username +password $password com vmware vcenter namespaces instances update --namespace ${namespace_prefix}${i} --vm-service-spec-vm-classes best-effort-xsmall --vm-service-spec-vm-classes best-effort-small --vm-service-spec-vm-classes best-effort-medium --vm-service-spec-vm-classes best-effort-large --vm-service-spec-vm-classes guaranteed-large --vm-service-spec-vm-classes guaranteed-xsmall --vm-service-spec-content-libraries $content_library_id`
+ 
+echo $assign_vmclass
+ 
+done
+</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
