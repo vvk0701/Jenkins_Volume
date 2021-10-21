@@ -9,6 +9,10 @@
       <jobCredentialId></jobCredentialId>
       <useAlternativeCredential>false</useAlternativeCredential>
     </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.32">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
@@ -16,11 +20,13 @@
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>tkgcluster</name>
+          <name>tkg-cluster</name>
+          <defaultValue>tkg-cluster50</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>wcpns</name>
+          <defaultValue>wcpns6</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
@@ -52,7 +58,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>export KUBECTL_VSPHERE_PASSWORD=$Kubectl_Password
-kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name $tkgcluster --tanzu-kubernetes-cluster-namespace $wcpns;
+kubectl vsphere login --server=192.168.123.2 -u cloudadmin@vmc.local --insecure-skip-tls-verify --tanzu-kubernetes-cluster-name $tkg-cluster --tanzu-kubernetes-cluster-namespace $wcpns;
 kubectl config current-context;
 chmod 777 tkcpods.sh;
 ./tkcpods.sh;

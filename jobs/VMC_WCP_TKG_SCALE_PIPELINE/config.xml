@@ -27,6 +27,10 @@
       <jobCredentialId></jobCredentialId>
       <useAlternativeCredential>false</useAlternativeCredential>
     </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.32">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.BooleanParameterDefinition>
@@ -35,8 +39,25 @@
           <defaultValue>true</defaultValue>
         </hudson.model.BooleanParameterDefinition>
         <hudson.model.StringParameterDefinition>
+          <name>VC_IP</name>
+          <description>Enter VCenter IP, Also add jenkins IP to Firewall on vCenter before Invoking</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
           <name>Kubectl_Password</name>
           <description>Enter Password from Cloudadmin user</description>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>no_of_ns</name>
+          <description>Enter number of WCP Namespaces to be deployed, Max allowed is 10</description>
+          <defaultValue>10</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>no_of_tkg_clusters</name>
+          <description>Enter number of tkg clusters to be created, Max allowed is 50</description>
+          <defaultValue>50</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
@@ -59,23 +80,6 @@
           <description>Boolean flag for skipping PVC</description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>VC_IP</name>
-          <description>Enter VCenter IP, Also add jenkins IP to Firewall on vCenter before Invoking</description>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>no_of_ns</name>
-          <description>Enter number of WCP Namespaces to be deployed, Max allowed is 10</description>
-          <defaultValue>10</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>no_of_tkg_clusters</name>
-          <description>Enter number of tkg clusters to be created, Max allowed is 50</description>
-          <defaultValue>50</defaultValue>
-          <trim>false</trim>
-        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
@@ -85,7 +89,7 @@
       <userRemoteConfigs>
         <hudson.plugins.git.UserRemoteConfig>
           <url>https://github.com/vvk0701/vmc_vvk</url>
-          <credentialsId>931866aa-12f0-4127-8733-f2ef743d0cb2</credentialsId>
+          <credentialsId>34bb70bf-146d-499d-8b6e-8f77afbadb33</credentialsId>
         </hudson.plugins.git.UserRemoteConfig>
       </userRemoteConfigs>
       <branches>

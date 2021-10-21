@@ -9,6 +9,10 @@
       <jobCredentialId></jobCredentialId>
       <useAlternativeCredential>false</useAlternativeCredential>
     </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.32">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
@@ -17,10 +21,12 @@
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>tkg_cluster</name>
+          <defaultValue>tkg_cluster6</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>wcpns</name>
+          <defaultValue>wcpns4</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
@@ -31,7 +37,7 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>https://github.com/vvk0701/vmc_vvk</url>
-        <credentialsId>931866aa-12f0-4127-8733-f2ef743d0cb2</credentialsId>
+        <credentialsId>34bb70bf-146d-499d-8b6e-8f77afbadb33</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
